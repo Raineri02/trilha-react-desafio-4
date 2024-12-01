@@ -1,8 +1,16 @@
-import { ButtonContainer } from "./styles";
-import { IButtonProps } from "./types";
+import React from "react";
 
-const Button = ({ title, onClick }: IButtonProps) => {
-  return <ButtonContainer onClick={onClick}>{title}</ButtonContainer>;
+interface ButtonProps {
+  title: string;
+  disabled?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({ title, disabled }) => {
+  return (
+    <button type="submit" disabled={disabled} style={{ opacity: disabled ? 0.5 : 1 }}>
+      {title}
+    </button>
+  );
 };
 
 export default Button;
